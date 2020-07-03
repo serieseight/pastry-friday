@@ -77,7 +77,9 @@
 	const endup = () => end = Math.min(end + 1, 24)
 
 	onMount(() => {
-		setInterval(() => now = new Date(), 1000)
+		let interval = setInterval(() => now = new Date(), 1000)
+
+		return () => clearInterval(interval)
 	})
 </script>
 
