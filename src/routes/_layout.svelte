@@ -1,0 +1,15 @@
+<style>
+	main {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+		justify-content: center;
+		text-align: center;
+		width: 100vw;
+	}
+</style>
+
+<main>
+	<slot></slot>
+</main>
