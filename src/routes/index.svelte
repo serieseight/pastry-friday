@@ -77,14 +77,7 @@
 	const endup = () => end = Math.min(end + 1, 24)
 
 	onMount(() => {
-		let frame
-
-		(function loop() {
-			frame = requestAnimationFrame(loop)
-			now = new Date()
-		}())
-
-		return () => cancelAnimationFrame(frame)
+		setInterval(() => now = new Date(), 1000)
 	})
 </script>
 
