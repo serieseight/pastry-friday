@@ -1,6 +1,11 @@
 <svelte:head>
 	<title>{title}</title>
 	<meta name="description" content={description} />
+	<meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Pastry Friday" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🥐</text></svg>" />
 </svelte:head>
 
 <section>
@@ -76,21 +81,8 @@
 		: `🥐 minus 0${d}:${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
 
 	$: description = pastryTime
-		? `
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-	🥐🎉🥐🎉🥐🎉🥐🎉🥐
-`
-		: `
-	🥐 Get ready for your pastry in:
-	⏱️ ${d} day${d === 1 ? '' : 's'}
-	⏱️ ${h} hour${h === 1 ? '' : 's'}
-	⏱️ ${m} minute${m === 1 ? '' : 's'}
-	⏱️ ${s} second${s === 1 ? '' : 's'}
-`
+		? `🥐🎉🥐🎉🥐🎉🥐🎉🥐🥐🎉🥐🎉🥐🎉🥐🎉🥐🥐🎉🥐🎉🥐🎉🥐🎉🥐🥐🎉🥐🎉🥐🎉🥐🎉🥐🥐🎉🥐🎉🥐🎉🥐🎉🥐🥐🎉🥐🎉🥐🎉🥐🎉🥐`
+		: `Get ready for your 🥐🥐🥐 in: ⏱️ ${d} day${d === 1 ? '' : 's'} ⏱️ ${h} hour${h === 1 ? '' : 's'} ⏱️ ${m} minute${m === 1 ? '' : 's'} ⏱️ ${s} second${s === 1 ? '' : 's'}`
 
 	const startdown = () => start = Math.max(start - 1, 0)
 	const startup = () => start = Math.min(start + 1, end - 1, 24)
