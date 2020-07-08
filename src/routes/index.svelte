@@ -57,7 +57,7 @@
 
 	$: {
 		let days = (7 - (now.getDay() - 5)) % 7
-		if (days === 0 && now.getHours() > end) days = 7
+		if (days === 0 && now.getHours() >= end) days = 7
 		nextFriday.setDate(now.getDate() + days)
 		nextFriday.setHours(start)
 		nextFriday.setMinutes(0)
