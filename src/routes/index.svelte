@@ -22,8 +22,8 @@
 			<p>
 				🥐 minus
 				<span class:o={!d}>0{d} days</span>
-				<span class:o={!h}>{h.toString().padStart(2, '0')} hours</span>
-				<span class:o={!m}>{m.toString().padStart(2, '0')} minutes</span>
+				<span class:o={!d && !h}>{h.toString().padStart(2, '0')} hours</span>
+				<span class:o={!d && !h && !m}>{m.toString().padStart(2, '0')} minutes</span>
 				{s.toString().padStart(2, '0')} seconds
 			</p>
 		{/if}
@@ -99,7 +99,7 @@
 	button {font-size: inherit;}
 	@media (max-width: 800px) {
 		footer {flex-direction: column;}
-		h2 {padding: 1vh;}
+		h2 {padding: 0.5vh;}
 		footer p {padding: 1vh;}
 	}
 </style>
