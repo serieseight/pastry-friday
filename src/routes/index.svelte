@@ -76,8 +76,21 @@
 		: `🥐 minus 0${d}:${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
 
 	$: description = pastryTime
-		? `  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐`
-		: `  🥐 Get ready for your pastry in:\n  ⏱️ ${d} days\n  ⏱️ ${h} hours\n  ⏱️ ${m} minutes\n  ⏱️ ${s} seconds`
+		? `
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+	🥐🎉🥐🎉🥐🎉🥐🎉🥐
+`
+		: `
+	🥐 Get ready for your pastry in:
+	⏱️ ${d} day${d === 1 ? '' : 's'}
+	⏱️ ${h} hour${h === 1 ? '' : 's'}
+	⏱️ ${m} minute${m === 1 ? '' : 's'}
+	⏱️ ${s} second${s === 1 ? '' : 's'}
+`
 
 	const startdown = () => start = Math.max(start - 1, 0)
 	const startup = () => start = Math.min(start + 1, end - 1, 24)
