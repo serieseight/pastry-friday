@@ -62,6 +62,7 @@
 		nextFriday.setHours(start)
 		nextFriday.setMinutes(0)
 		nextFriday.setSeconds(0)
+		nextFriday = nextFriday
 	}
 
 	$: pastryCountdown = nextFriday.getTime() - now.getTime()
