@@ -6,27 +6,29 @@
 	{/if}
 </svelte:head>
 
-<h1>The time is</h1>
+<section>
+	<h1>The time is</h1>
 
-<div>
-	{#if pastryTime}
-		<p>
-			<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
-			<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
-			<b>¡PASTRY TIME!</b>
-			<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
-			<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
-		</p>
-	{:else}
-		<p>
-			🥐 minus
-			<span class:o={!d}>0{d} days</span>
-			<span class:o={!h}>{h.toString().padStart(2, '0')} hours</span>
-			<span class:o={!m}>{m.toString().padStart(2, '0')} minutes</span>
-			{s.toString().padStart(2, '0')} seconds
-		</p>
-	{/if}
-</div>
+	<div>
+		{#if pastryTime}
+			<p>
+				<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
+				<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
+				<b>¡PASTRY TIME!</b>
+				<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
+				<span>🥐🥐🥐🥐🥐🥐🥐🥐</span>
+			</p>
+		{:else}
+			<p>
+				🥐 minus
+				<span class:o={!d}>0{d} days</span>
+				<span class:o={!h}>{h.toString().padStart(2, '0')} hours</span>
+				<span class:o={!m}>{m.toString().padStart(2, '0')} minutes</span>
+				{s.toString().padStart(2, '0')} seconds
+			</p>
+		{/if}
+	</div>
+</section>
 
 <footer>
 	<h2>Pastry Friday</h2>
@@ -84,13 +86,19 @@
 </script>
 
 <style>
+	section {display: flex; flex-direction: column; align-items: center; justify-content: center; flex-grow: 1;}
 	h1 {font-size: max(7vh, 0.9rem); margin: 0;}
 	div p {margin: 0; font-size: max(5vh, 0.9rem); display: flex; flex-direction: column; align-items: center;}
 	.o {opacity: 0.2}
-	footer {font-size: max(2vh, 0.9rem); display: flex; width: 100%; position: fixed; bottom: 0; justify-content: center; align-items: center;}
-	footer p {display: flex; align-items: center; padding: 0.5vh 2vh;}
+	footer {font-size: max(2vh, 0.9rem); display: flex; width: 100%; justify-content: center; align-items: center;}
+	footer p {display: flex; align-items: center; padding: 2vh; margin: 0;}
 	footer span {width: max(6.5vh, 3rem); text-align: center;}
 	footer b {font-weight: normal; margin-right: 0.5vh;}
-	h2 {font-size: inherit;}
+	h2 {font-size: inherit; margin: 0; padding: 2vh;}
 	button {font-size: inherit;}
+	@media (max-width: 800px) {
+		footer {flex-direction: column;}
+		h2 {padding: 1vh;}
+		footer p {padding: 1vh;}
+	}
 </style>
