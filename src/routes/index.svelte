@@ -1,9 +1,6 @@
 <svelte:head>
-	{#if pastryTime}
-		<title>🥐🥐🥐 Time!</title>
-	{:else}
-		<title>🥐 - 0{d}:{h.toString().padStart(2, '0')}:{m.toString().padStart(2, '0')}:{s.toString().padStart(2, '0')}</title>
-	{/if}
+	<title>{title}</title>
+	<meta name="description" content={description} />
 </svelte:head>
 
 <section>
@@ -73,6 +70,14 @@
 	$: d = Math.floor((pastryCountdown / (1000 * 60 * 60 * 24)))
 	$: formattedStart = `${start.toString().padStart(2, '0')}:00`
 	$: formattedEnd = `${end.toString().padStart(2, '0').replace('00', '12')}:00`
+
+	$: title = pastryTime
+		? `🥐🥐🥐 TIME!!!`
+		: `🥐 minus 0${d}:${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
+
+	$: description = pastryTime
+		? `  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐\n  🥐🎉🥐🎉🥐🎉🥐🎉🥐`
+		: `  🥐 Get ready for your pastry in:\n  ⏱️ ${d} days\n  ⏱️ ${h} hours\n  ⏱️ ${m} minutes\n  ⏱️ ${s} seconds`
 
 	const startdown = () => start = Math.max(start - 1, 0)
 	const startup = () => start = Math.min(start + 1, end - 1, 24)
